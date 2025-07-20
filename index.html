@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Puzzle Adventure</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffaf3;
+      margin: 40px;
+      line-height: 1.6;
+    }
+    .puzzle {
+      border: 2px dashed #f4a261;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      display: none;
+      background-color: #fff;
+    }
+    .puzzle h2 {
+      margin-top: 0;
+    }
+    .puzzle input {
+      padding: 8px;
+      width: 70%;
+      font-size: 16px;
+    }
+    .puzzle button {
+      padding: 8px 16px;
+      font-size: 16px;
+      margin: 8px 5px;
+      cursor: pointer;
+      background-color: #2a9d8f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .next-button {
+      display: none;
+      margin-top: 10px;
+    }
+    #puzzle1 {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎉 Your Birthday Puzzle Adventure 🎁</h1>
+<p>Each puzzle unlocks the next destination in your day together. Solve to reveal the Google Maps link and move on!</p>
+
+<div class="puzzle" id="puzzle1">
+  <h2>Puzzle 1: Café del Niño</h2>
+  <p>Type the name of this destination to unlock the next surprise.</p>
+  <input type="text" id="answer1" placeholder="Your answer here" />
+  <button onclick="checkAnswer(1, 'cafe del nino')">Submit</button>
+  <p id="feedback1" class="feedback"></p>
+  <div class="next-button" id="controls1">
+    <a href="https://www.google.com/maps/place/Caf%C3%A9+del+Ni%C3%B1o/@18.466123,-66.117446,17z" target="_blank">📍 Open in Google Maps</a><br>
+    <button onclick="showNext('puzzle2')">Next Puzzle ➡️</button>
+  </div>
+</div>
+
+<div class="puzzle" id="puzzle2">
+  <h2>Puzzle 2: Poet’s Passage</h2>
+  <p>Type the name of this destination to unlock the next surprise.</p>
+  <input type="text" id="answer2" placeholder="Your answer here" />
+  <button onclick="checkAnswer(2, 'poets passage')">Submit</button>
+  <p id="feedback2" class="feedback"></p>
+  <div class="next-button" id="controls2">
+    <a href="https://www.google.com/maps/place/Poet's+Passage/@18.464905,-66.118067,17z" target="_blank">📍 Open in Google Maps</a><br>
+    <button onclick="showNext('puzzle3')">Next Puzzle ➡️</button>
+  </div>
+</div>
+
+<div class="puzzle" id="puzzle3">
+  <h2>Puzzle 3: Save a Gato</h2>
+  <p>Type the name of this destination to unlock the next surprise.</p>
+  <input type="text" id="answer3" placeholder="Your answer here" />
+  <button onclick="checkAnswer(3, 'save a gato')">Submit</button>
+  <p id="feedback3" class="feedback"></p>
+  <div class="next-button" id="controls3">
+    <a href="https://www.google.com/maps/place/Save+a+Gato/@18.463767,-66.118813,17z" target="_blank">📍 Open in Google Maps</a><br>
+    <button onclick="showNext('puzzle4')">Next Puzzle ➡️</button>
+  </div>
+</div>
+
+<div class="puzzle" id="puzzle4">
+  <h2>Puzzle 4: St. Germain Bistro Café</h2>
+  <p>Type the name of this destination to unlock the next surprise.</p>
+  <input type="text" id="answer4" placeholder="Your answer here" />
+  <button onclick="checkAnswer(4, 'st germain bistro cafe')">Submit</button>
+  <p id="feedback4" class="feedback"></p>
+  <div class="next-button" id="controls4">
+    <a href="https://www.google.com/maps/place/St.+Germain+Bistro+%26+Cafe/@18.466469,-66.113983,17z" target="_blank">📍 Open in Google Maps</a><br>
+    <button onclick="showNext('puzzle5')">Next Puzzle ➡️</button>
+  </div>
+</div>
+
+<div class="puzzle" id="puzzle5">
+  <h2>Puzzle 5: Caribbean Labs / L/beads</h2>
+  <p>Type the name of this destination to unlock the next surprise.</p>
+  <input type="text" id="answer5" placeholder="Your answer here" />
+  <button onclick="checkAnswer(5, 'caribbean labs / l/beads')">Submit</button>
+  <p id="feedback5" class="feedback"></p>
+  <div class="next-button" id="controls5">
+    <a href="https://www.google.com/maps/place/Caribbean+Beads/@18.4633104,-66.1124477,17z" target="_blank">📍 Open in Google Maps</a><br>
+    <button onclick="showNext('puzzle6')">Next Puzzle ➡️</button>
+  </div>
+</div>
+
+<div class="puzzle" id="puzzle6">
+  <h2>Puzzle 6: Divinissimo Gelato</h2>
+  <p>Type the name of this destination to unlock the next surprise.</p>
+  <input type="text" id="answer6" placeholder="Your answer here" />
+  <button onclick="checkAnswer(6, 'divinissimo gelato')">Submit</button>
+  <p id="feedback6" class="feedback"></p>
+  <div class="next-button" id="controls6">
+    <a href="https://www.google.com/maps/place/Divinissimo+Gelato/@18.4639596,-66.1128241,17z" target="_blank">📍 Open in Google Maps</a><br>
+    <button onclick="showNext('puzzle7')">Next Puzzle ➡️</button>
+  </div>
+</div>
+
+<div class="puzzle" id="puzzle7">
+  <h2>Puzzle 7: Plaza del Mercado</h2>
+  <p>Type the name of this destination to unlock the next surprise.</p>
+  <input type="text" id="answer7" placeholder="Your answer here" />
+  <button onclick="checkAnswer(7, 'plaza del mercado')">Submit</button>
+  <p id="feedback7" class="feedback"></p>
+  <div class="next-button" id="controls7">
+    <a href="https://www.google.com/maps/place/Plaza+del+Mercado+de+Santurce/@18.449004,-66.070373,17z" target="_blank">📍 Open in Google Maps</a><br>
+    <button onclick="showNext('puzzle8')">Next Puzzle ➡️</button>
+  </div>
+</div>
+
+<div class="puzzle" id="puzzle8">
+  <h2>Puzzle 8: Go home and change</h2>
+  <p>Type the name of this destination to unlock the next surprise.</p>
+  <input type="text" id="answer8" placeholder="Your answer here" />
+  <button onclick="checkAnswer(8, 'go home and change')">Submit</button>
+  <p id="feedback8" class="feedback"></p>
+  <div class="next-button" id="controls8">
+    <a href="https://www.google.com/maps" target="_blank">📍 Open in Google Maps</a><br>
+    <button onclick="showNext('puzzle9')">Next Puzzle ➡️</button>
+  </div>
+</div>
+
+<div class="puzzle" id="puzzle9">
+  <h2>Puzzle 9: Sunset Sail</h2>
+  <p>Type the name of this destination to unlock the next surprise.</p>
+  <input type="text" id="answer9" placeholder="Your answer here" />
+  <button onclick="checkAnswer(9, 'sunset sail')">Submit</button>
+  <p id="feedback9" class="feedback"></p>
+  <div class="next-button" id="controls9">
+    <a href="https://www.google.com/maps/place/Sail+PR/@18.4657291,-66.1086048,17z" target="_blank">📍 Open in Google Maps</a><br>
+    <button onclick="showNext('puzzle10')">Next Puzzle ➡️</button>
+  </div>
+</div>
+
+<div class="puzzle" id="puzzle10">
+  <h2>Puzzle 10: Caleta del Vino</h2>
+  <p>Type the name of this destination to unlock the next surprise.</p>
+  <input type="text" id="answer10" placeholder="Your answer here" />
+  <button onclick="checkAnswer(10, 'caleta del vino')">Submit</button>
+  <p id="feedback10" class="feedback"></p>
+  <div class="next-button" id="controls10">
+    <a href="https://www.google.com/maps/place/Caleta+del+Vino/@18.4636,-66.1169,17z" target="_blank">📍 Open in Google Maps</a><br>
+    <button onclick="showNext('complete')">Next Puzzle ➡️</button>
+  </div>
+</div>
+
+<div class="puzzle" id="complete">
+  <h2>🎊 You did it!! 🎉</h2>
+  <p>I hope you had a wonderful 25th birthday 💖<br>
+  I can't wait to spend the whole day with you in San Juan!</p>
+</div>
+
+<script>
+function normalize(text) {
+  return text.toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]/g, "");
+}
+
+function checkAnswer(num, correct) {
+  const input = document.getElementById('answer' + num).value;
+  const feedback = document.getElementById('feedback' + num);
+  if (normalize(input) === normalize(correct)) {
+    feedback.textContent = "✅ Correct!";
+    document.getElementById('controls' + num).style.display = "block";
+  } else {
+    feedback.textContent = "❌ Try again!";
+  }
+}
+
+function showNext(id) {
+  document.getElementById(id).style.display = "block";
+}
+</script>
+
+</body>
+</html>
