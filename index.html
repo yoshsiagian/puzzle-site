@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Puzzle Adventure</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffaf3;
+      margin: 40px;
+      line-height: 1.6;
+    }
+    .puzzle {
+      border: 2px dashed #f4a261;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      display: none;
+      background-color: #fff;
+    }
+    .puzzle h2 {
+      margin-top: 0;
+    }
+    .puzzle input {
+      padding: 8px;
+      width: 70%;
+      font-size: 16px;
+    }
+    .puzzle button {
+      padding: 8px 16px;
+      font-size: 16px;
+      margin-left: 10px;
+      cursor: pointer;
+      background-color: #2a9d8f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    #puzzle1 {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎉 Welcome to Your Birthday Adventure! 🎁</h1>
+<p>Each puzzle reveals our next destination. Solve them in order. 💌</p>
+
+<div class="puzzle" id="puzzle1">
+  <h2>Puzzle 1: Morning Coffee ☕</h2>
+  <p>Unscramble this: <strong>ÉICN LAFD ÉOAC</strong></p>
+  <input type="text" id="answer1" placeholder="Type your answer..." />
+  <button onclick="checkAnswer(1, 'café del niño')">Submit</button>
+  <p id="feedback1" class="feedback"></p>
+</div>
+
+<div class="puzzle" id="puzzle2">
+  <h2>Puzzle 2: Artistic Stop ✒️</h2>
+  <p>Clue: A place where poems line the walls, and verses echo off art. (7 + 8 letters)</p>
+  <input type="text" id="answer2" placeholder="Type your answer..." />
+  <button onclick="checkAnswer(2, 'poet's passage')">Submit</button>
+  <p id="feedback2" class="feedback"></p>
+</div>
+
+<div class="puzzle" id="puzzle3">
+  <h2>Puzzle 3: Furry Friends 🐱</h2>
+  <p>Hidden in this sentence is your next destination: “Look past a veggie tart.”</p>
+  <input type="text" id="answer3" placeholder="Type your answer..." />
+  <button onclick="checkAnswer(3, 'save a gato')">Submit</button>
+  <p id="feedback3" class="feedback"></p>
+</div>
+
+<div class="puzzle" id="puzzle4">
+  <h2>Puzzle 4: Lunch Spot 🥗</h2>
+  <p>Emoji clue: 🕍🇫🇷 + 👨‍🦳 + 🥪☕</p>
+  <input type="text" id="answer4" placeholder="Type your answer..." />
+  <button onclick="checkAnswer(4, 'st. germain bistro café')">Submit</button>
+  <p id="feedback4" class="feedback"></p>
+</div>
+
+<div class="puzzle" id="puzzle5">
+  <h2>Puzzle 5: Bracelet Crafting 🎨</h2>
+  <p>Reorder these words: beads / Labs / Caribbean / L</p>
+  <input type="text" id="answer5" placeholder="Type your answer..." />
+  <button onclick="checkAnswer(5, 'caribbean labs / l/beads')">Submit</button>
+  <p id="feedback5" class="feedback"></p>
+</div>
+
+<div class="puzzle" id="puzzle6">
+  <h2>Puzzle 6: Something Sweet 🍨</h2>
+  <p>Fill in the blank: This gelato is _ _ _ _ _ _ _ _ _ _ _ _ divine.</p>
+  <input type="text" id="answer6" placeholder="Type your answer..." />
+  <button onclick="checkAnswer(6, 'divinissimo gelato')">Submit</button>
+  <p id="feedback6" class="feedback"></p>
+</div>
+
+<div class="puzzle" id="puzzle7">
+  <h2>Puzzle 7: Local Treasures 🛍️</h2>
+  <p>Riddle: I’m not a mall but filled with life—local finds, joy, and no strife.</p>
+  <input type="text" id="answer7" placeholder="Type your answer..." />
+  <button onclick="checkAnswer(7, 'plaza del mercado')">Submit</button>
+  <p id="feedback7" class="feedback"></p>
+</div>
+
+<div class="puzzle" id="puzzle8">
+  <h2>Puzzle 8: Quick Break 🏠</h2>
+  <p>Decode this backward phrase: "egnahc dna emoh og"</p>
+  <input type="text" id="answer8" placeholder="Type your answer..." />
+  <button onclick="checkAnswer(8, 'go home and change')">Submit</button>
+  <p id="feedback8" class="feedback"></p>
+</div>
+
+<div class="puzzle" id="puzzle9">
+  <h2>Puzzle 9: Golden Hour 🌅</h2>
+  <p>Clue: We'll float while the sky glows pink and gold. What are we doing?</p>
+  <input type="text" id="answer9" placeholder="Type your answer..." />
+  <button onclick="checkAnswer(9, 'sunset sail')">Submit</button>
+  <p id="feedback9" class="feedback"></p>
+</div>
+
+<div class="puzzle" id="puzzle10">
+  <h2>Puzzle 10: Final Toast 🍷</h2>
+  <p>Mini crossword: A little cove + word for wine (Spanish)</p>
+  <input type="text" id="answer10" placeholder="Type your answer..." />
+  <button onclick="checkAnswer(10, 'caleta del vino')">Submit</button>
+  <p id="feedback10" class="feedback"></p>
+</div>
+
+<div class="puzzle" id="complete" style="display:none;">
+  <h2>🎊 You did it!! 🎉</h2>
+  <p>You solved all the clues. I can’t wait to take you on this San Juan adventure 💕</p>
+</div>
+
+<script>
+function checkAnswer(number, correct) {
+  const userInput = document.getElementById('answer' + number).value.toLowerCase().trim();
+  const feedback = document.getElementById('feedback' + number);
+  if (userInput === correct.toLowerCase()) {
+    feedback.textContent = "✅ Correct!";
+    const nextPuzzle = document.getElementById('puzzle' + (number + 1));
+    if (nextPuzzle) {
+      nextPuzzle.style.display = 'block';
+    } else {
+      document.getElementById('complete').style.display = 'block';
+    }
+  } else {
+    feedback.textContent = "❌ Not quite—try again!";
+  }
+}
+</script>
+
+</body>
+</html>
